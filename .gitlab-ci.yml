@@ -3,7 +3,7 @@ variables:
   REVISION: r1
 
 stages:
-- build
+  - build
 
 build:
   stage: build
