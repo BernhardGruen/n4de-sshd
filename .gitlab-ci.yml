@@ -1,0 +1,20 @@
+variables:
+  ALPINE_VERSION: 3.7
+  REVISION: r1
+
+stages:
+- build
+
+build:
+  stage: build
+  image: docker:17.12.1
+  before_script:
+    - echo "$CI_JOB_TOKEN" | docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" --password-stdin
+  script:
+    - docker build
+      --build-arg ALPINE_VERSION="${ALPINE_VERSION}"
+      -t $CI_REGISTRY_IMAGE:${ALPINE_VERSION}-${REVISION}
+      .
+    - docker tag $CI_REGISTRY_IMAGE:${ALPINE_VERSION}-${REVISION} $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE
+
