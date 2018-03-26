@@ -16,7 +16,6 @@ Ein simpler Aufruf auf einem solchen Docker-Host sieht daher wie folgt aus:
 docker run \
     -d \
     -p 55022:22 \
-    -v "/home/docker/.ssh/authorized_keys:/home/sysop/.ssh/authorized_keys:ro" \
     registry.n4group.eu/n4de/sshd
 ```
 
@@ -35,17 +34,21 @@ version: "3"
 services:
   sshd:
     image: registry.n4group.eu/n4de/sshd
+    environment:
+      SSH_AUTH_KEYS: # TODO
+        Key 1
+        Key 2
+        Key 3
+      SSH_PRINCIPALS: TEAM vorname.nachname ...
     deploy:
       mode: global
     ports:
       - "55022:22"
-    volumes:
-      - "/home/docker/.ssh/authorized_keys:/home/sysop/.ssh/authorized_keys:ro"
     networks:
       - backend
 
 networks:
   backend:
     driver: overlay
-    internal: true  # Services haben keinen Zugang zum öffentlichen Netz
+    internal: true  # Instanzen dieses Netzes erhalten keinen Zugang zum öffentlichen Netz
 ```
