@@ -12,6 +12,7 @@ build:
     - echo "$CI_JOB_TOKEN" | docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" --password-stdin
   script:
     - docker build
+      --pull
       --build-arg ALPINE_VERSION="${ALPINE_VERSION}"
       -t $CI_REGISTRY_IMAGE:${ALPINE_VERSION}-${REVISION}
       .

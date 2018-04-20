@@ -8,7 +8,7 @@ RUN adduser -D sysop && \
 COPY files/ /
 
 # add openssh
-RUN apk add --update --no-cache openssh && \
+RUN apk add --no-cache openssh && \
     rm /etc/ssh/sshd_config.apk-new
 
 EXPOSE 22
