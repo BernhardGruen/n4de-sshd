@@ -9,12 +9,9 @@ AllowUsers root sysop
 
 AuthorizedKeysFile	/etc/ssh/authorized_keys/%u
 
-TrustedUserCAKeys /etc/ssh/ssh_user_ca.pub
-AuthorizedPrincipalsFile /etc/ssh/principals/%u
-RevokedKeys /etc/ssh/ssh_revoked_keys
 StrictModes no
 
 Subsystem sftp internal-sftp
 
 PermitUserRC no
-PubkeyAcceptedKeyTypes  ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ssh-rsa
+PubkeyAcceptedKeyTypes  ssh-ed25519,ssh-rsa
