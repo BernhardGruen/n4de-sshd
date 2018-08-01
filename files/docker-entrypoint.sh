@@ -34,6 +34,7 @@ if [ ! -f "/etc/ssh/ssh_host_ed25519_key" ]; then
 fi
 unset HOST_PRIV_KEY_ED25519
 
+mkdir -p /etc/ssh/authorized_keys
 # Add Public Keys to root account
 if [ -n "$USER_KEYS_ROOT" ]; then
 		echo "$USER_KEYS_ROOT" > /etc/ssh/authorized_keys/root
