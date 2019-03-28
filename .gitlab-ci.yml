@@ -1,5 +1,5 @@
 variables:
-  ALPINE_VERSION: "3.8"
+  ALPINE_VERSION: "3.9"
   REVISION: "r1"
 
 stages:
@@ -7,7 +7,7 @@ stages:
 
 build:
   stage: build
-  image: docker:18.03.1
+  image: docker:18.06.1
   before_script:
     - echo "$CI_JOB_TOKEN" | docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" --password-stdin
   script:
