@@ -14,4 +14,3 @@ StrictModes no
 Subsystem sftp internal-sftp
 
 PermitUserRC no
-PubkeyAcceptedKeyTypes  ssh-ed25519,ssh-rsa

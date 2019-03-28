@@ -1,6 +1,6 @@
 variables:
   ALPINE_VERSION: "3.9"
-  REVISION: "r1"
+  REVISION: "r2"
 
 stages:
   - build
