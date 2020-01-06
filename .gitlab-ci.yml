@@ -1,6 +1,6 @@
 variables:
-  DOCKER_VERSION: "18.09.7"
-  ALPINE_VERSION: "3.10"
+  DOCKER_VERSION: "18.09.9"
+  ALPINE_VERSION: "3.11"
   REVISION: "r0"
 
 stages:
